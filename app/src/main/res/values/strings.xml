@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Caculator2022</string>
+    <string name="num_zero">0</string>
+    <string name="ac_btn_txt">AC</string>
+</resources>
