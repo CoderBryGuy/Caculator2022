@@ -2,4 +2,21 @@
     <string name="app_name">Caculator2022</string>
     <string name="num_zero">0</string>
     <string name="ac_btn_txt">AC</string>
+    <string name="del_btn_text">del</string>
+    <string name="divide_btn_text">/</string>
+    <string name="multi_btn_txt">*</string>
+    <string name="minus_btn_text">-</string>
+    <string name="_9_btn">9</string>
+    <string name="_8_btn">8</string>
+    <string name="_7_btn">7</string>
+    <string name="plus_btn_txt">+</string>
+    <string name="_6_btn">6</string>
+    <string name="_5_btn">5</string>
+    <string name="_4_btn">4</string>
+    <string name="equals_btn_txt">=</string>
+    <string name="_3_btn">3</string>
+    <string name="_2_btn">2</string>
+    <string name="_1_btn">1</string>
+    <string name="_0_btn">0</string>
+    <string name="dot_btn_txt">.</string>
 </resources>
