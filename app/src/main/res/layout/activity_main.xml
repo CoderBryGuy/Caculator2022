@@ -7,17 +7,14 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-    <LinearLayout android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:orientation="vertical">
-
         <TextView android:layout_width="match_parent" android:layout_height="90dp"
                   android:textSize="30sp"
                   android:id="@+id/textViewHistory"
                   android:gravity="center|end"
                   android:textColor="@color/black"
                   android:background="@color/white"/>
-
         <TextView android:layout_width="match_parent" android:layout_height="110dp"
                   android:textSize="60sp"
                   android:id="@+id/textViewResult"
@@ -26,10 +23,9 @@
                   android:background="@color/white"
                   android:text="@string/num_zero"/>
 
-        <GridLayout android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:rowCount="5"
-                    android:columnCount="4">
+
+        <GridLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:rowCount="5" android:columnCount="4">
 
             <!-- row 1 -->
 
@@ -171,7 +167,7 @@
             <!-- row 4 -->
 
             <Button android:id="@+id/btnEquals"
-                    android:layout_height="80dp"
+                    android:layout_height="160dp"
                     android:layout_width="wrap_content"
                     android:text="@string/equals_btn_txt"
                     android:textSize="30sp"
@@ -180,9 +176,12 @@
                     android:layout_row="3"
                     android:layout_column="3"
                     android:layout_columnWeight="1"
-                    android:layout_columnSpan="2"
-                    android:layout_gravity="fill_horizontal"
+
+
+                    android:layout_rowSpan="2"
+                    android:layout_gravity="center_vertical"
                     app:backgroundTint="@color/orange"/>
+
 
             <Button android:id="@+id/btn3"
                     android:layout_height="80dp"
@@ -229,10 +228,9 @@
                     android:layout_row="4"
                     android:layout_column="1"
                     android:layout_columnWeight="1"
-                    android:layout_rowSpan="2"
-
-
+                    android:layout_columnSpan="2"
             />
+
 
             <Button android:id="@+id/btnDot"
                     android:layout_height="80dp"
@@ -244,7 +242,6 @@
                     android:layout_row="4"
                     android:layout_column="0"
                     android:layout_columnWeight="1"/>
-
         </GridLayout>
 
     </LinearLayout>
