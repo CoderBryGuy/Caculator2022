@@ -50,7 +50,7 @@
                     android:layout_column="1"
                     android:layout_columnWeight="1"/>
 
-            <Button android:id="@+id/btnDivide"
+            <Button android:id="@+id/btnDiv"
                     android:layout_height="80dp"
                     android:layout_width="wrap_content"
                     android:text="@string/divide_btn_text"
@@ -218,7 +218,7 @@
 
             <!-- row 5 -->
 
-            <Button android:id="@+id/btnZero"
+            <Button android:id="@+id/btn0"
                     android:layout_height="80dp"
                     android:layout_width="wrap_content"
                     android:text="@string/_0_btn"

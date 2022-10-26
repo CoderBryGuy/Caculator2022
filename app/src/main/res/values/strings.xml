@@ -19,4 +19,5 @@
     <string name="_1_btn">1</string>
     <string name="_0_btn">0</string>
     <string name="dot_btn_txt">.</string>
+    <string name="undefined_division">undefined</string>
 </resources>
