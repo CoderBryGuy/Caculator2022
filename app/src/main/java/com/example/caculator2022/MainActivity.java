@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mBtnAC, mBtnDel, mBtnDiv, mBtnMulti, mBtnMinus, mBtnPlus, mBtnEquals, mBtnDot,
             mBtn0, mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8, mBtn9;
 
-    private String mNumber = null, mStatus = null;
+    private String mNumber = null, mStatus = null, mHistory, mCurrentResult;
     private double mFirstNum = 0.0d, mLastNum = 0.0d;
 
     private boolean mOperator = false;
@@ -168,6 +168,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: div");
+                updateTextViewHistory("/");
                 setOperator();
                 mStatus = STATUS_DIV;
             }
@@ -177,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: multi");
+                updateTextViewHistory("*");
                 setOperator();
                 mStatus = STATUS_MULTI;
             }
@@ -186,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: minus");
+                updateTextViewHistory("-");
                 setOperator();
                 mStatus = STATUS_MINUS;
 
@@ -196,6 +199,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: plus");
+                updateTextViewHistory("+");
+                setOperator();
+                mStatus = STATUS_SUM;
 //                if (mOperator) {
 //                    switch (mStatus) {
 //                        case STATUS_MULTI:
@@ -218,10 +224,6 @@ public class MainActivity extends AppCompatActivity {
 //                    mOperator = false;
 //                    mNumber = null;
 //                }
-
-                setOperator();
-                mStatus = STATUS_SUM;
-
             }
         });
 
@@ -238,14 +240,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: dot");
+                    if(mNumber == null){
+                        mNumber = ".0";
+                    }else{
+                        mNumber += ".";
+                    }
 
+                    mTextViewResult.setText(mNumber);
             }
         });
 
         Log.d(TAG, "onCreate: ended");
     }
 
+    public void updateTextViewHistory(String operator){
+        Log.d(TAG, "updateTextViewHistory: operator = " + operator);
+        mHistory = mTextViewHistory.getText().toString();
+        mCurrentResult = mTextViewResult.getText().toString();
+        mTextViewHistory.setText(mHistory + mCurrentResult + operator);
+    }
     public void setOperator() {
+
+
         if (mOperator) {
             switch (mStatus) {
                 case STATUS_MULTI:
