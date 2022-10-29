@@ -244,18 +244,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: dot");
-                if(!mNumber.contains(".")) {
                     if (mNumber == null) {
                         mNumber = ".0";
                     } else {
-                        mNumber += ".";
+                        if(!mNumber.contains(".")) {
+                            mNumber += ".";
+                        }
+                        else{
+                                Log.d(TAG, "onClick: mNumber already has '.' mNumber = " + mNumber);
+                            }
                     }
-
                     mTextViewResult.setText(mNumber);
-                }else{
-                    Log.d(TAG, "onClick: mNumber already has '.' mNumber = " + mNumber);
                 }
-            }
         });
 
         Log.d(TAG, "onCreate: ended");
