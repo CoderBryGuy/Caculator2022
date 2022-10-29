@@ -160,6 +160,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Log.d(TAG, "onClick: del, mNumber = " + mNumber);
                     mNumber = mNumber.substring(0, mNumber.length()-1);
                     mTextViewResult.setText(mNumber);
             }
@@ -169,8 +170,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "onClick: div");
                 updateTextViewHistory("/");
-                setOperator();
                 mStatus = STATUS_DIV;
+                setOperator();
+
             }
         });
 
@@ -179,8 +181,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "onClick: multi");
                 updateTextViewHistory("*");
-                setOperator();
                 mStatus = STATUS_MULTI;
+                setOperator();
+
             }
         });
 
@@ -189,8 +192,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "onClick: minus");
                 updateTextViewHistory("-");
-                setOperator();
                 mStatus = STATUS_MINUS;
+                setOperator();
+
 
             }
         });
@@ -200,8 +204,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Log.d(TAG, "onClick: plus");
                 updateTextViewHistory("+");
-                setOperator();
                 mStatus = STATUS_SUM;
+                setOperator();
 //                if (mOperator) {
 //                    switch (mStatus) {
 //                        case STATUS_MULTI:
@@ -240,13 +244,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Log.d(TAG, "onClick: dot");
-                    if(mNumber == null){
+                if(!mNumber.contains(".")) {
+                    if (mNumber == null) {
                         mNumber = ".0";
-                    }else{
+                    } else {
                         mNumber += ".";
                     }
 
                     mTextViewResult.setText(mNumber);
+                }else{
+                    Log.d(TAG, "onClick: mNumber already has '.' mNumber = " + mNumber);
+                }
             }
         });
 
@@ -309,7 +317,7 @@ public class MainActivity extends AppCompatActivity {
             mFirstNum = Double.parseDouble(mTextViewResult.getText().toString());
         } else {
             mLastNum = Double.parseDouble(mTextViewResult.getText().toString());
-            mFirstNum = -mLastNum;
+            mFirstNum -= mLastNum;
         }
         mTextViewResult.setText(mFormatter.format(mFirstNum));
     }
@@ -349,11 +357,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void numberClick(String view) {
-        Log.d(TAG, "numberClick: started");
+        Log.d(TAG, "numberClick: started, view = " + view);
         if (mNumber == null) {
             mNumber = view;
         } else {
-            mNumber += view;
+           if(mNumber.equals(".0")){
+               mNumber = "." + view;
+           }else {
+               mNumber += view;
+           }
         }
         mTextViewResult.setText(mNumber);
         mOperator = true;
